@@ -1,0 +1,59 @@
+<div class="modal-header">
+  <h6 class="modal-title font-weight-bold">Add New Client</h6>
+</div>
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <div class="modal-body">
+
+    <div class="form-group">
+      <label for="id">Client ID:</label>
+      <input type="text" class="form-control" id="id" formControlName="id">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastname">Last Name:</label>
+        <input type="text" class="form-control" id="lastname" formControlName="lastName">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="phone">Phone:</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="joiningdate">Joining Date:</label>
+        <input type="date" class="form-control" id="joiningdate" formControlName="joiningDate">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select class="custom-select mr-sm-2" id="status" formControlName="status">
+        <option selected class="font-weight-bold">Select Membership Type ...</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="remarks">Remarks:</label>
+      <textarea class="form-control rounded-0" id="remarks" rows="3" formControlName="remarks"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="file">Client Image:</label>
+      <input type="file" class="form-control-file" id="file" (change)="onFileSelect($event)" accept="image/jpeg, image/jpg">
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-success">Save</button>
+      <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+
+  </div>
+</form>

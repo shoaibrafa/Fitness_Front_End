@@ -1,0 +1,28 @@
+
+<div class="container-fluid">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+          <div class="form-group">
+            <div class="imgcontainer">
+              <img src="assets/images/logo_dark.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container shadow-lg">
+              <label for="username"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" formControlName="username" required id="username">
+
+              <label for="password"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" formControlName="password" required id="password">
+              <div *ngIf="wrongCredentials == true" class="alert-danger">Wrong Username or Password</div>
+              <button type="submit">Login</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</div>

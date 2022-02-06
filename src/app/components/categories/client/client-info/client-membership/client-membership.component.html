@@ -1,0 +1,34 @@
+<div class="padding">
+  <div>
+    <h5 class="text-info font-weight-bold">Client's Memberships</h5>
+  </div>
+  <table class="table table-hover table-responsive-xl small" *ngIf="isDataLoaded">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Mem.Type</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Balance</th>
+      <th scope="col">Pay.Date</th>
+      <th scope="col">Pay.Method</th>
+      <th colspan="3"><a style="cursor: pointer" (click)="open()">Add New Membership</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let mem of clientMemberships; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ mem.membership.type }}</td>
+      <td>{{ mem.start_date }}</td>
+      <td>{{ mem.end_date }}</td>
+      <td>{{ mem.payment | currency: "INR"}}</td>
+      <td>{{ mem.balance }}</td>
+      <td>{{ mem.payment_date }}</td>
+      <td>{{ mem.payment_method }}</td>
+      <td><a routerLink="#" class="btn btn-primary btn-sm">Edit</a></td>
+      <td><a routerLink="#" class="btn btn-danger btn-sm">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

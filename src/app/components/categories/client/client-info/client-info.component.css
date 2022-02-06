@@ -1,0 +1,24 @@
+.margin-back-btn {
+  margin-right: 20px;
+}
+
+.margin-other-btn {
+  margin-right: 5px;
+}
+
+.padding {
+  padding-top: 10px;
+}
+
+.large-font{
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.profile_background {
+  background-color: #06357a;
+}
+
+.profile_text_color {
+  color: #a6e2f1;
+}

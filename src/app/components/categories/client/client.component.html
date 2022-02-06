@@ -1,0 +1,68 @@
+<div class="container-fluid">
+
+<div class="card bg-light mb-auto shadow-lg">
+  <div class="card-header">
+    <span class="mx-auto">
+      <h4 class="redBoldText">Clients
+        <a href="#" class="btn btn-primary float-right btn-sm">Load/Reload</a>
+        <button  class="btn btn-success float-right margin-right btn-sm" (click)="open()">New</button>
+      </h4>
+    </span>
+  </div>
+    <table class="table table-hover table-responsive-xl small">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Joining Date</th>
+        <th scope="col">Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients | paginate: { itemsPerPage: 10, currentPage: pageNumber, totalItems:totalClients }; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.lastName}}</td>
+          <td>{{ client.phone }}</td>
+          <td>{{ client.joiningDate}}</td>
+          <td [ngClass]="[statusStyle(client.status)]" style="font-weight: bold">{{ client.status }}</td>
+          <td><a routerLink="#" class="btn btn-primary btn-sm">Edit</a></td>
+          <td><a routerLink="#" class="btn btn-danger btn-sm">Delete</a></td>
+          <td><a [routerLink]="['/main', { outlets: { c: ['client', 'clientinfo']}}]" (click)="setServiceClientId(client.id, pageNumber)" class="btn btn-info btn-sm">Info</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="totalClients > 0">
+      <pagination-controls class="my-pagination small float-right" style="padding-right: 80px" (pageChange)="pageChanged($event)"></pagination-controls>
+      <div class="float-left" style="padding-left: 15px;">
+        <div class="form-check-inline">
+          <label class="form-check-label text-primary" for="all">
+            <input type="radio" class="form-check-input" id="all" name="status" value="All" checked  (change)="filter($event)">All
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label text-primary" for="active">
+            <input type="radio" class="form-check-input" id="active" name="status" value="Active" (change)="filter($event)">Active
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label text-primary" for="inactive">
+            <input type="radio" class="form-check-input" id="inactive" name="status" value="Inactive"  (change)="filter($event)">Inactive
+          </label>
+        </div>
+<!--      <button  class="btn btn-primary float-right margin-right btn-sm" (click)="open()">Inactive</button>-->
+<!--        <button  class="btn btn-primary float-right margin-right btn-sm" (click)="open()">Active</button>-->
+<!--      <button  class="btn btn-primary float-right margin-right btn-sm" (click)="open()">All</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+

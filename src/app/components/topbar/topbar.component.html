@@ -1,0 +1,19 @@
+<div class="input-group">
+  <form [formGroup]="searchForm" (ngSubmit)="search()">
+    <div class="input-group-append">
+      <input
+        type="text"
+        class="form-control"
+        id="keyword"
+        formControlName="keyword"
+        placeholder="Search"
+      />
+
+      <a
+        [routerLink]="['/main', { outlets: { c: ['search'] } }]"
+        class="btn btn-dark btn-sm"
+        >Search</a
+      >
+    </div>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+
+<div class="modal-header">
+  <h6 class="modal-title font-weight-bold">Add New Membership | Client ID: {{ clientId }}</h6>
+</div>
+<form [formGroup]="clientMembershipForm" (ngSubmit)="onSubmit()">
+  <div class="modal-body">
+    <!--    membership type menue-->
+    <div class="form-group" formGroupName="membership">
+      <label for="memtype">Membership Type</label>
+      <select class="custom-select mr-sm-2" id="memtype"  formControlName="type">
+        <option selected class="font-weight-bold">Select Membership Type ...</option>
+        <option value="{{m.type}}" *ngFor="let m of allMemberships">{{m.type}}</option>
+      </select>
+    </div>
+
+    <!--    membership start date and end date -->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="startdate">Start Date</label>
+        <input type="date" class="form-control" id="startdate" formControlName="start_date">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="enddate">End Date</label>
+        <input type="date" class="form-control" id="enddate" formControlName="end_date">
+      </div>
+    </div>
+
+    <!--    membership payment-->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="payment">Amount</label>
+        <input type="input" class="form-control" id="payment" placeholder="Amount" formControlName="payment">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="balance">Balance</label>
+        <input type="input" class="form-control" id="balance" placeholder="Balance" formControlName="balance">
+      </div>
+    </div>
+
+    <!--    payment method-->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="paymentmethod">Payment Method</label>
+        <select class="custom-select mr-sm-2" id="paymentmethod" formControlName="payment_method">
+          <option selected class="font-weight-bold">Select Payment Method ...</option>
+          <option value="Card">Card</option>
+          <option value="Paytm">Paytm</option>
+          <option value="Cash">Cash</option>
+        </select>
+      </div>
+
+      <!--      payment date-->
+      <div class="form-group col-md-6">
+        <label for="paymentdate">Payment Date</label>
+        <input type="date" class="form-control" id="paymentdate" formControlName="payment_date">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Close</button>
+  </div>
+</form>

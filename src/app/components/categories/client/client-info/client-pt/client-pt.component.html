@@ -1,0 +1,39 @@
+<div class="padding">
+  <div>
+    <h5 class="text-info font-weight-bold">Client's Personal Trainings</h5>
+  </div>
+  <table class="table table-hover table-responsive-lg small" *ngIf="isDataLoaded">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Coach</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col">Time</th>
+      <th scope="col">Sessions</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Balance</th>
+      <th scope="col">Pay. Method</th>
+      <th scope="col">Pay. Date</th>
+      <th colspan="3"><button class="btn btn-success btn-sm">Add New PT</button></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pt of clientPts; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ pt.coach.name}}</td>
+      <td>{{ pt.startDate }}</td>
+      <td>{{ pt.endDate }}</td>
+      <td>{{ pt.time }}</td>
+      <td>{{ pt.sessions }}</td>
+      <td>{{ pt.payment }}</td>
+      <td>{{ pt.balance }}</td>
+      <td>{{ pt.paymentMethod }}</td>
+      <td>{{ pt.paymentDate}}</td>
+      <td><a routerLink="#" class="btn btn-primary btn-sm">Edit</a></td>
+      <td><a routerLink="#" class="btn btn-danger btn-sm">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--<app-client-membership-form></app-client-membership-form>-->

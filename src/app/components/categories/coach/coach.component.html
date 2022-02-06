@@ -1,0 +1,50 @@
+<div class="container-fluid">
+
+  <div class="card bg-light mb-auto shadow-lg">
+    <div class="card-header">
+    <span class="mx-auto">
+      <h4 class="redBoldText">Coaches
+        <a href="#" class="btn btn-primary float-right btn-sm">Load/Reload</a>
+        <button  class="btn btn-success float-right margin-right btn-sm">New</button>
+      </h4>
+    </span>
+    </div>
+    <table class="table table-hover table-responsive-lg small">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Base Salary</th>
+        <th scope="col">Training Fee</th>
+        <th scope="col">Joining Date</th>
+        <th scope="col">Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let coach of coaches; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ coach.id }}</td>
+        <td>{{ coach.name }}</td>
+        <td>{{ coach.lastName }}</td>
+        <td>{{ coach.position }}</td>
+        <td>{{ coach.phone }}</td>
+        <td>{{ coach.baseSalary }}</td>
+        <td>{{ coach.baseFee}} %</td>
+        <td>{{ coach.joiningDate}}</td>
+        <td>{{ coach.status}}</td>
+        <td><a routerLink="#" class="btn btn-primary btn-sm">Edit</a></td>
+        <td><a routerLink="#" class="btn btn-danger btn-sm">Delete</a></td>
+        <td><a [routerLink]="['/coachinfo']" class="btn btn-info btn-sm">Info</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
