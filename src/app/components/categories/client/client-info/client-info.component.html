@@ -1,83 +1,130 @@
 <div class="card badge-light shadow-lg">
   <div class="card-header">
     <div class="row">
-      <div class="col-11">
+      <div class="col-10">
         <h4>Client Information</h4>
       </div>
-      <div class="btn-group col-1" role="group" style="padding-right: 15px">
-        <a [routerLink]="['/main', { outlets: { c: ['client']}}]" class="btn btn-danger margin-back-btn">Back</a>
+      <div class="btn-group col-2" role="group">
+        <a
+          [routerLink]="['/main', { outlets: { c: ['client'] } }]"
+          class="btn btn-danger margin-back-btn"
+          >Back</a
+        >
       </div>
     </div>
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-3 profile_background">
-        <div class="container-fluid text-center py-3">
-          <img [src]="clientPhoto" alt="..." class="rounded-circle mx-auto d-block" width="200"/>
+        <div class="container text-center py-3">
+          <img
+            [src]="clientPhoto"
+            alt="..."
+            class="rounded-circle img-fluid"
+            width="200"
+          />
           <div class="pt-2">
-            <input #file (change)="uploadImage($event)" accept="image/*" style="display:none" type="file">
-            <button (click)="file.click()" class="btn btn-success btn-sm align-content-center">Update Image</button>
+            <input
+              #file
+              (change)="uploadImage($event)"
+              accept="image/*"
+              style="display: none"
+              type="file"
+            />
+            <button
+              (click)="file.click()"
+              class="btn btn-success btn-sm align-content-center"
+            >
+              Update Image
+            </button>
           </div>
         </div>
         <div>
-          <table class="table table-responsive table-sm">
+          <table class="table table-responsive table-md">
             <tr>
-              <th class="profile_text_color"colspan="2"><h5 class="font-weight-bold">Personal Information</h5></th>
+              <th class="profile_text_color" colspan="2">
+                <h5 class="font-weight-bold">Personal Information</h5>
+              </th>
             </tr>
             <tr>
               <th class="profile_text_color">ID:</th>
-              <td class="profile_text_color">{{clientInfo && clientInfo[0]?.id }}</td>
+              <td class="profile_text_color">
+                {{ clientInfo && clientInfo[0]?.id }}
+              </td>
             </tr>
             <tr>
               <th class="profile_text_color">Name:</th>
-              <td class="profile_text_color">{{ clientInfo && clientInfo[0]?.name }}</td>
+              <td class="profile_text_color">
+                {{ clientInfo && clientInfo[0]?.name }}
+              </td>
             </tr>
             <tr>
               <th class="profile_text_color">Last Name:</th>
-              <td class="profile_text_color">{{ clientInfo && clientInfo[0]?.lastName }}</td>
+              <td class="profile_text_color">
+                {{ clientInfo && clientInfo[0]?.lastName }}
+              </td>
             </tr>
             <tr>
               <th class="profile_text_color">Phone:</th>
-              <td class="profile_text_color">{{ clientInfo && clientInfo[0]?.phone }}</td>
+              <td class="profile_text_color">
+                {{ clientInfo && clientInfo[0]?.phone }}
+              </td>
             </tr>
             <tr>
               <th class="profile_text_color">E-mail:</th>
-              <td class="profile_text_color">{{ clientInfo && clientInfo[0]?.email }}</td>
+              <td class="profile_text_color">
+                {{ clientInfo && clientInfo[0]?.email }}
+              </td>
             </tr>
             <tr>
               <th class="profile_text_color">Joining Date:</th>
-              <td class="profile_text_color">{{ clientInfo && clientInfo[0]?.joiningDate }}</td>
+              <td class="profile_text_color">
+                {{ clientInfo && clientInfo[0]?.joiningDate }}
+              </td>
             </tr>
             <tr>
-              <th class="profile_text_color" colspan="3">Comment:</th>
+              <th class="profile_text_color" colspan="2">Comment:</th>
             </tr>
             <tr>
-              <td class="profile_text_color" colspan="3">{{clientInfo && clientInfo[0]?.remarks }}</td>
+              <td class="profile_text_color" colspan="2">
+                {{ clientInfo && clientInfo[0]?.remarks }}
+              </td>
             </tr>
           </table>
         </div>
       </div>
       <div class="col-9">
         <div class="row">
-
           <div class="col-lg-4 col-md-4">
-            <div [ngClass]="[getMembershipBalanceColor()]" class="card text-center text-white">
+            <div
+              [ngClass]="[getMembershipBalanceColor()]"
+              class="card text-center text-white"
+            >
               <div class="card-body">
                 <h5 class="card-title">Total Membership Balances</h5>
-                <p class="card-text large-font">{{totalMembershipBalance}}.00</p>
+                <p class="card-text large-font">
+                  {{ totalMembershipBalance }}.00
+                </p>
               </div>
               <div class="card-footer">
-                <button (click)="show_Membership()" class="btn bg-light" type="button">
+                <button
+                  (click)="show_Membership()"
+                  class="btn bg-light"
+                  type="button"
+                >
                   Memberships
                 </button>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4">
-            <div [ngClass]="[getPtBalanceColor()]" class="card text-center text-white">
-              <div  class="card-body">
+            <div
+              [ngClass]="[getPtBalanceColor()]"
+              class="card text-center text-white"
+            >
+              <div class="card-body">
                 <h5 class="card-title">Total PT Balance</h5>
-                <p class="card-text large-font">{{totalPtBalance}}.00</p>
+                <p class="card-text large-font">{{ totalPtBalance }}.00</p>
               </div>
               <div class="card-footer">
                 <button (click)="show_Pt()" class="btn btn-light" type="button">
@@ -93,14 +140,21 @@
                 <p class="card-text large-font">400.00</p>
               </div>
               <div class="card-footer">
-                <button (click)="show_Cafe()" class="btn btn-light" type="button">
+                <button
+                  (click)="show_Cafe()"
+                  class="btn btn-light"
+                  type="button"
+                >
                   Cafe Purchases
                 </button>
               </div>
             </div>
           </div>
           <div class="p-3 container-fluid">
-            <app-client-membership (emitTotalBalance)="getTotalMembershipBalance($event)" *ngIf="showMembership"></app-client-membership>
+            <app-client-membership
+              (emitTotalBalance)="getTotalMembershipBalance($event)"
+              *ngIf="showMembership"
+            ></app-client-membership>
             <app-client-pt *ngIf="showPt"></app-client-pt>
             <app-client-cafe *ngIf="showCafe"></app-client-cafe>
           </div>

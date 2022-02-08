@@ -1,6 +1,13 @@
 <div class="list-group" style="margin-top: 10px">
   <a
-    [routerLink]="['/membership', { outlets: { c: ['membership'] } }]"
+    [routerLink]="['/main', { outlets: { c: ['dashboard'] } }]"
+    class="list-group-item list-group-item-action text-secondary"
+  >
+    <em class="fas fa-tachometer-alt" style="padding-right: 10px"></em>Dashboard
+  </a>
+
+  <a
+    [routerLink]="['/main', { outlets: { c: ['membership'] } }]"
     class="list-group-item list-group-item-action text-secondary"
   >
     <em class="fas fa-users-cog" style="padding-right: 10px"></em>Memberships

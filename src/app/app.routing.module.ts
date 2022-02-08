@@ -1,3 +1,5 @@
+import { MembershipComponent } from './components/categories/membership/membership.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchComponent } from './components/search/search.component';
 import {NgModel} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent, canActivate: [AuthGuard], children: [
+      {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard], outlet: 'c'},
+      {path:'membership', component: MembershipComponent, canActivate: [AuthGuard], outlet: 'c'},
       { path: 'client', component: ClientComponent, canActivate: [AuthGuard], outlet: 'c' },
       { path: 'client/clientinfo', component: ClientInfoComponent, outlet: 'c', children: [
           { path: 'cafe', component: ClientCafeComponent},

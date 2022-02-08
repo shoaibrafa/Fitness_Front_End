@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.credentials.password = this.loginForm.get('password').value;
 
     this.service.checkLogin(this.credentials).subscribe(data => {
-      this.router.navigateByUrl('/main/(c:client)');
+      this.router.navigateByUrl('/main/(c:dashboard)');
     },
       errorMessage => {
         console.log('Wrong username or password', errorMessage);

@@ -28,6 +28,8 @@ import { MainComponent } from './components/main/main.component';
 import {RequestInterceptorService} from './app-service/request-interceptor.service';
 import {LoginService} from './components/login/login.service';
 import { SearchComponent } from './components/search/search.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardService } from './components/dashboard/dashboard.service';
 
 
 
@@ -52,6 +54,7 @@ import { SearchComponent } from './components/search/search.component';
     LoginComponent,
     MainComponent,
     SearchComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -65,6 +68,7 @@ import { SearchComponent } from './components/search/search.component';
   ],
   providers: [
     IdService,
+    DashboardService,
     LoginService,
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true }
     ],
