@@ -10,18 +10,29 @@ export class DashboardComponent implements OnInit {
 
   constructor(private service: DashboardService) {
     this.fetchTotalMemBalance();
+    this.fetchPtTotalBalance();
    }
 
   ngOnInit(): void { }
 
 
-  totalBalance = 0;
+  totalMemBalance = 0;
+  totalPtBalance = 0;
 
   private fetchTotalMemBalance(): any {
     this.service.fetchTotalMemBalance().subscribe(data =>{
-      this.totalBalance = data;
+      this.totalMemBalance = data;
     });
   }
+
+
+  private fetchPtTotalBalance(): any{
+    this.service.fetchTotalPtBalance().subscribe(data => {
+      this.totalPtBalance = data;
+    });
+
+  }
+
 
 
 }
