@@ -19,9 +19,17 @@ export class DashboardService {
   public fetchTotalMemBalance(): any {
     return this.http.get(this.SERVER + '/dashboard/membalance')
     .pipe(map(data =>{
-      console.log(data);
       return data;
     }));
+  }
+
+
+  public fetchTotalPtBalance():any {
+    return this.http.get(this.SERVER + '/dashboard/ptbalance')
+    .pipe(map(data => {
+      console.log(data);
+      return data;
+    }))
   }
 
 }
