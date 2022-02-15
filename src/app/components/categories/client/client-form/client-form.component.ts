@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
-import {AppService} from '../../../../app-service/app.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AppService } from '../../../../app-service/app.service';
 
 @Component({
   selector: 'app-client-form',
@@ -15,8 +15,8 @@ export class ClientFormComponent implements OnInit {
   file: File;
 
   constructor(public activeModal: NgbActiveModal,
-              private http: HttpClient,
-              private server: AppService) { }
+    private http: HttpClient,
+    private server: AppService) { }
 
   ngOnInit(): void {
     this.clientForm = new FormGroup({
@@ -30,14 +30,14 @@ export class ClientFormComponent implements OnInit {
     });
   }
 
-  onFileSelect(event): void{
-    if (event.target.files.length > 0){
+  onFileSelect(event): void {
+    if (event.target.files.length > 0) {
       this.file = event.target.files[0];
     }
   }
 
 
-  onSubmit(): void{
+  onSubmit(): void {
     this.formData = new FormData();
     this.formData.append('id', this.clientForm.get('id').value);
     this.formData.append('name', this.clientForm.get('name').value);
@@ -48,7 +48,7 @@ export class ClientFormComponent implements OnInit {
     this.formData.append('remarks', this.clientForm.get('remarks').value);
     this.formData.append('photo', this.file);
 
-    this.http.post(this.server.SERVER + '/athletique/restclients/createclient', this.formData).subscribe(response => {
+    this.http.post(this.server.SERVER + '/restclients/createclient', this.formData).subscribe(response => {
     });
   }
 }
