@@ -28,7 +28,7 @@ const appRoutes: Routes = [
           { path: 'membership', component: ClientMembershipComponent },
           { path: 'pt', component: ClientPtComponent }
         ] },
-      { path: 'search', component: SearchComponent, outlet: 'c'},
+      { path: 'search/:searchKeyword', component: SearchComponent, outlet: 'c'},
       { path: 'coach', component: CoachComponent, outlet: 'c'},
       { path: 'cafe', component: CafeComponent, outlet: 'c'},
     ] },
