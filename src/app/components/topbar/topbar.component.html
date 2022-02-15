@@ -6,14 +6,12 @@
         class="form-control"
         id="keyword"
         formControlName="keyword"
-        placeholder="Search"
-      />
+        placeholder="Search"/>
 
-      <a
-        [routerLink]="['/main', { outlets: { c: ['search'] } }]"
+      <button
         class="btn btn-dark btn-sm"
-        >Search</a
-      >
+        type="submit"
+        name="search">Search</button>
     </div>
   </form>
 </div>

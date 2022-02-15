@@ -1,7 +1,8 @@
 import { ClientModel } from './../categories/client/client.model';
 import { ClientService } from './../categories/client/client-service/client.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -11,24 +12,17 @@ import { Component, OnInit } from '@angular/core';
 export class TopbarComponent implements OnInit {
   searchForm: FormGroup;
   clients: ClientModel[];
+  keyword: any;
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService, private router: Router) { }
 
   ngOnInit(): void {
     this.searchForm = new FormGroup({
-      keyword: new FormControl(null),
+      keyword: new FormControl(''),
     });
   }
 
   search(): void{
-    console.log('I am searching for .... ', this.searchForm.get('keyword').value);
-    this.fetchSearch(this.searchForm.get('keyword').value);
-  }
-
-
-  private fetchSearch(keyword: string): any {
-    this.clientService.fetchSearch(keyword).subscribe(arg => {
-      this.clients = arg[0];
-    });
+    this.router.navigate(['/main',{outlets: {c: ['search',this.searchForm.get('keyword').value]}}]);
   }
 }
