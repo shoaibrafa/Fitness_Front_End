@@ -28,14 +28,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let client of clients; let i = index">
+          <td>{{ i + 1}}</td>
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.lastName }}</td>
+          <td>{{ client.phone }}</td>
+          <td>{{ client.joiningDate }}</td>
+          <td [ngClass]="[statusStyle(client.status)]">{{ client.status }}</td>
           <td><a routerLink="#" class="btn btn-primary btn-sm">Edit</a></td>
           <td><a routerLink="#" class="btn btn-danger btn-sm">Delete</a></td>
           <td><a class="btn btn-info btn-sm">Info</a></td>
